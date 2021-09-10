@@ -1,5 +1,6 @@
 package org.example;
 import java.util.Scanner;
+import java.lang.Math;
 
 /*
  *  UCF COP3330 Fall 2021 Assignment 1 Solution
@@ -10,22 +11,22 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "What is the first number? " );
-
         Scanner scanner = new Scanner(System.in);
-        String first, second;
-        int firstNumber, secondNumber;
+        int length, width;
+        double squareFeet, gallonsNeeded;
+        final int gallonCoverage = 350;
 
-        first = scanner.nextLine();
-        firstNumber = Integer.parseInt(first);
+        System.out.println( "What is the ceiling length in feet? " );
 
-        System.out.println( "What is the second number? " );
-        second = scanner.nextLine();
-        secondNumber = Integer.parseInt(second);
+        length = scanner.nextInt();
 
-        System.out.println( firstNumber + " + " + secondNumber + " = " + (firstNumber+secondNumber));
-        System.out.println( firstNumber + " - " + secondNumber + " = " + (firstNumber-secondNumber));
-        System.out.println( firstNumber + " * " + secondNumber + " = " + (firstNumber*secondNumber));
-        System.out.println( firstNumber + " / " + secondNumber + " = " + (firstNumber/secondNumber));
+        System.out.println( "What is the ceiling width in feet? " );
+        width = scanner.nextInt();
+
+        squareFeet = length * width;
+        gallonsNeeded = Math.ceil(squareFeet / gallonCoverage);
+
+        System.out.println( "You will need to purchase " + (int)gallonsNeeded +
+                " gallons of paint to cover " + (int)squareFeet + " square feet." );
     }
 }
